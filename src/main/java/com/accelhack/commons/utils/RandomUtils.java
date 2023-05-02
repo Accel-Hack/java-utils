@@ -25,16 +25,4 @@ public class RandomUtils {
       .mapToObj(randomIndex -> String.valueOf(filteredChars.charAt(randomIndex)))
       .collect(Collectors.joining());
   }
-
-//  public static String alphaNumeric(int length) {
-//    // ASCII範囲–英数字(0-9、a-z、A-Z)
-//    final String chars = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
-//
-//    SecureRandom random = new SecureRandom();
-//
-//    return IntStream.range(0, length)
-//      .map(i -> random.nextInt(chars.length()))
-//      .mapToObj(randomIndex -> String.valueOf(chars.charAt(randomIndex)))
-//      .collect(Collectors.joining());
-//  }
 }
