@@ -17,4 +17,4 @@ jobs:
           distribution: corretto
 
       - name: Publish to GitHub Packages Apache Maven
-        run: mvn deploy -e
+        run: GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} mvn -B -s settings.xml deploy -e
