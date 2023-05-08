@@ -15,9 +15,13 @@ public class RandomUtils {
   public static String alphaNumeric(int length, Character... excludes) {
     // ASCII範囲–英数字(0-9、a-z、A-Z)
     final String chars = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
-    final String excludeRegex = String.join("", Arrays.stream(excludes).map(String::valueOf).toList());
-    final String filteredChars = chars.replaceAll(String.format("[%s]", excludeRegex), "");
-
+    final String filteredChars;
+    if (excludes.length == 0) {
+      filteredChars = chars;
+    } else {
+      final String excludeRegex = String.join("", Arrays.stream(excludes).map(String::valueOf).toList());
+      filteredChars = chars.replaceAll(String.format("[%s]", excludeRegex), "");
+    }
     SecureRandom random = new SecureRandom();
 
     return IntStream.range(0, length)
